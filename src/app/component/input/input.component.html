@@ -1,0 +1,33 @@
+<div class="ipdiv">
+  <mat-form-field class="input">
+    <input matInput #date [matDatepicker]="myDatePicker" placeholder="Enter the date">
+    <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #myDatePicker></mat-datepicker>
+  </mat-form-field>
+
+
+  <mat-form-field class="input">
+    <mat-label>Used For</mat-label>
+    <mat-select #usedfor>
+      <mat-option value="breakfast">BreakFast</mat-option>
+      <mat-option value="lunch">Lunch</mat-option>
+      <mat-option value="dinner">Dinner</mat-option>
+      <mat-option value="others">Others</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-radio-group #option="matRadioGroup" class="input" id="radio">
+    <mat-radio-button value="online">Online</mat-radio-button>
+    <mat-radio-button value="cash">Cash</mat-radio-button>
+  </mat-radio-group>
+
+
+  <mat-form-field class="input">
+    <mat-label>Amount</mat-label>
+    <input matInput #amount >
+  </mat-form-field>
+
+<button  mat-raised-button (click)="add(date.value,usedfor.value,option.value,amount.value)">add</button>
+  
+</div>

@@ -1,0 +1,24 @@
+.ipdiv{
+  margin:0;
+  padding:0;
+  background-color: darkgrey;
+  
+}
+
+.input{
+  padding:20px;
+  
+}
+
+mat-radio-button{
+  padding:5px;
+}
+
+#radio{
+  border: black 1px solid;
+}
+
+table{
+  margin: 10px;
+  width:100%
+}
