@@ -1,12 +1,12 @@
 .ipdiv{
   margin:0;
   padding:0;
-  background-color: darkgrey;
-  
+  display: flex;
+  flex-direction: column;
 }
 
 .input{
-  padding:20px;
+  padding:10px;
   
 }
 
@@ -18,7 +18,27 @@ mat-radio-button{
   border: black 1px solid;
 }
 
-table{
-  margin: 10px;
-  width:100%
+
+
+.example-card {
+  
+  max-width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.inputcomponent{
+  background-color: aliceblue;
+  padding: 20px;
+}
+
+.icon{
+  margin-right: 0;
+  padding:10px;
+  font-size: 40px;
 }

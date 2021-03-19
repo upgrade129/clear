@@ -10,6 +10,9 @@ import { MatButtonModule,
   MatRadioModule,
 } from '@angular/material';
 import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material';
+import { FormsModule } from '@angular/forms'
 
 
 const Materials =[ 
@@ -21,6 +24,9 @@ const Materials =[
   MatSelectModule,
   MatRadioModule,
   MatTableModule,
+  MatCardModule,
+  MatIconModule,
+  FormsModule,
 ]
 @NgModule({
   

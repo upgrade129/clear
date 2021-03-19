@@ -1,33 +1,87 @@
-<div class="ipdiv">
-  <mat-form-field class="input">
-    <input matInput #date [matDatepicker]="myDatePicker" placeholder="Enter the date">
-    <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
-    <mat-datepicker #myDatePicker></mat-datepicker>
-  </mat-form-field>
+<div class="inputcomponent">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-icon  class="icon" aria-hidden="false" aria-label="Example home icon"
+        >add_task</mat-icon
+      >
+      <mat-form-field class="input">
+        <mat-label>ID</mat-label>
+        <input matInput #id [value]="tabid" />
+      </mat-form-field>
 
 
-  <mat-form-field class="input">
-    <mat-label>Used For</mat-label>
-    <mat-select #usedfor>
-      <mat-option value="breakfast">BreakFast</mat-option>
-      <mat-option value="lunch">Lunch</mat-option>
-      <mat-option value="dinner">Dinner</mat-option>
-      <mat-option value="others">Others</mat-option>
-    </mat-select>
-  </mat-form-field>
+      <!-- <mat-card-title>Shiba Inu</mat-card-title>
+      <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+    </mat-card-header>
 
+    <div class="ipdiv">
+      <mat-form-field class="input" >
+        
+        <input *ngIf="tabdate === undefined; else elseBlock"
 
-  <mat-radio-group #option="matRadioGroup" class="input" id="radio">
-    <mat-radio-button value="online">Online</mat-radio-button>
-    <mat-radio-button value="cash">Cash</mat-radio-button>
-  </mat-radio-group>
+        matInput
+        #date
+        [matDatepicker]="myDatePicker"
+        placeholder="Enter the date"
+           
+        />
+        <ng-template #elseBlock>
 
+        </ng-template>
+        <input 
+        matInput
+        #date
+        [value]="tabdate"
+        placeholder="Enter the date"
+         />
+        <mat-datepicker-toggle
+          [for]="myDatePicker"
+          matSuffix
+          
+        ></mat-datepicker-toggle>
+        <mat-datepicker #myDatePicker ></mat-datepicker>
+      </mat-form-field>
 
-  <mat-form-field class="input">
-    <mat-label>Amount</mat-label>
-    <input matInput #amount >
-  </mat-form-field>
+      <mat-form-field class="input">
+        <mat-label>Used For</mat-label>
+        <mat-select #usedfor [value]="tabusedfor">
+          <mat-option value="breakfast">BreakFast</mat-option>
+          <mat-option value="lunch">Lunch</mat-option>
+          <mat-option value="dinner">Dinner</mat-option>
+          <mat-option value="others">Others</mat-option>
+        </mat-select>
+      </mat-form-field>
 
-<button  mat-raised-button (click)="add(date.value,usedfor.value,option.value,amount.value)">add</button>
-  
+      <mat-radio-group #option="matRadioGroup" class="input" id="radio" [value]="taboption">
+        <mat-radio-button value="online">Online</mat-radio-button>
+        <mat-radio-button value="cash">Cash</mat-radio-button>
+      </mat-radio-group>
+
+      <mat-form-field class="input">
+        <mat-label>Amount</mat-label>
+        <input matInput #amount [value]="tabamount" />
+      </mat-form-field>
+
+      <button
+        color="primary"
+        mat-raised-button
+        
+        (click)="add(id.value,date.value, usedfor.value, option.value, amount.value)"
+      >
+        Add
+      </button>
+    </div>
+
+    <!-- <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions> -->
+  </mat-card>
 </div>

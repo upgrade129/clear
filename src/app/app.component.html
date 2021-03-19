@@ -1,7 +1,7 @@
 <div class="heading">
     <div class="mat-display-3">Clear</div>
+    <hr>
 </div>
 
-  <app-input (getDetials)="detialstotable"></app-input>
-  <app-table [tabledetials]="detialstotable"></app-table>
-{{getDetials}}
+  <app-input [data]="TabDetail" (getDetails)="getDetailsFromInput($event)" ></app-input>
+  <app-table [tabledetails]="details" (tabledetailsChange)="getDetailsFromTable($event)" ></app-table>
