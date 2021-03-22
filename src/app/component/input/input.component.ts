@@ -22,37 +22,17 @@ export class InputComponent implements OnInit {
   details: {}
   tabamount
   taboption
-  tabdate=undefined
+  tabdate :string
   tabusedfor
   tabid
   constructor() { }
 
   ngOnInit() {
   this.ipreset();
-  this.dummydata();
+  
     
   }
-
-  dummydata(){
-    let values =[
-      {
-        id:134,
-        date:"05-02-2011",
-        usedfor:"dinner",
-        option:"cash",
-        amount:123
-      },
-      {
-        id:135,
-        date:"05-12-2013",
-        usedfor:"dinner",
-        option:"online",
-        amount:1232
-      },
-    ];
-    let jsondata =JSON.stringify(values);
-    localStorage.setItem('dummydata',jsondata );
-  }
+ 
   
 
   add(id,date,usedfor,option,amount){
@@ -76,6 +56,15 @@ export class InputComponent implements OnInit {
     this.taboption=null
    this.tabamount=0;
    this.tabid=Math.floor((Math.random() * 10000) + 1);
+   this.tabdate = this.getdate()
+  }
+
+  getdate():string{
+    let date :Date =new Date();
+    console.log("todays date is ===",date,date.getMonth())
+    let formateddate = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`
+    console.log(formateddate)
+    return(formateddate)
   }
 
   ngOnChanges(changes : SimpleChanges){

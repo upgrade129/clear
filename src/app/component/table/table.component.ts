@@ -75,29 +75,41 @@ export class TableComponent implements OnInit {
   getselected(value){
     this.dummy=value
     console.log(value);
+    console.log("row click");
     
     if(this.del){
-      this.dataSource=this.deleterow();
-      // this.dataSource=datachange;
+      let remaining =this.deleterow();
+      console.log("remaining",remaining);
+      console.log(this.dataSource);
+      ELEMENT_DATA = remaining;
+      console.log("element data after deleting",ELEMENT_DATA)
+      let str = JSON.stringify(remaining);
+      let parse = JSON.parse(str)
+      this.dataSource = parse
       
     }
     if(!this.del){
+      console.log(this.del)
       this.tabledetailsChange.emit(value);
     }
-
+    this.del=false
   }
 
   delete(){
     this.del=true
+    console.log("del click");
   }
 
-  deleterow(){
+  deleterow():any{
     console.log("del",true);
     for(let i in this.dataSource){
       if(this.dataSource[i].id === this.dummy.id){
         let  x :number =+ i
         let dele =this.dataSource.splice(x,1)
-        return(dele);      
+        console.log("balance",this.dataSource);
+        console.log("dele",dele,x)
+ 
+        return(this.dataSource);      
         
       }
     }
